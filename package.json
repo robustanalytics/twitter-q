@@ -1,0 +1,34 @@
+{
+  "name": "twitter-q",
+  "version": "0.1.0",
+  "description": "Package for easy query of Twitter data",
+  "main": "lib/twitter-q.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "twit": "^2.2.11"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robustanalytics/twitter-privacy.git"
+  },
+  "keywords": [
+    "Privacy",
+    "Twitter"
+  ],
+  "author": "Nan Zhang",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/robustanalytics/twitter-privacy/issues"
+  },
+  "homepage": "https://github.com/robustanalytics/twitter-privacy#readme"
+}
