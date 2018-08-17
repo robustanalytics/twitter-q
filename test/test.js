@@ -6,14 +6,21 @@ var should = chai.should();
 
 var TwitterQ = require('../lib/twitter-q');
 var twq = new TwitterQ({
-  consumer_key:			    '***REMOVED***',
-  consumer_secret:		  '***REMOVED***',
-  access_token:		      '***REMOVED***',
-  access_token_secret:  '***REMOVED***',
+  consumer_key:			    process.env.TWITTER_API_KEY,
+  consumer_secret:		  process.env.TWITTER_API_SECRET,
+  access_token:		      process.env.TWITTER_API_TOKEN,
+  access_token_secret:	process.env.TWITTER_API_TOKEN_SECRET,
 });
 
 describe('#TwitterQ with user timeline retrieval', function() {
-  it('respond with matching records', async function() {
-    return twq.get_user_timeline('543000344').should.eventually.have.length.be.above(0);
+  it('respond with matching records', (done) => {
+    twq.get_user_timeline('2485791210')
+      .then(results => {
+        console.log(results[0]);
+        results.should.have.length.be.above(0);
+        done();
+      })
+      .catch(done);
+    // return twq.get_user_timeline('2733452459').should.eventually.have.length.be.above(0);
   });
 });

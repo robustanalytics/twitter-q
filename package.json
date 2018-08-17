@@ -1,5 +1,5 @@
 {
-  "name": "twitter-q",
+  "name": "@robustanalytics/twitter-q",
   "version": "0.1.0",
   "description": "Package for easy query of Twitter data",
   "main": "lib/twitter-q.js",
