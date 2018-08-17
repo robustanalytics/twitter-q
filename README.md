@@ -3,6 +3,7 @@ This is a nodeJs package for handling Twitter API requests with the following su
 - throttle the frequency of requests to comply with free-usage limit imposed by Twitter,
 - automate page turns to retrieve complete records, e.g., all (up to 3,200) tweets on a user's timeline
 - cache the results returned by Twitter APIs, using the caching mechanism specified by the user
+
 The initial version of this package has the following limitations:
 - It supports the following Twitter API calls only: statuses/user_timeline.
 - It only supports storing cache as local files
