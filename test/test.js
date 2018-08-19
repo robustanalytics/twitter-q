@@ -10,6 +10,8 @@ var twq = new TwitterQ({
   consumer_secret:		  process.env.TWITTER_API_SECRET,
   access_token:		      process.env.TWITTER_API_TOKEN,
   access_token_secret:	process.env.TWITTER_API_TOKEN_SECRET,
+  ctype:                'file',
+  cparams:              process.env.TWITTER_API_CACHE_DIRECTORY,
 });
 
 describe('#TwitterQ with user timeline retrieval', function() {
@@ -44,6 +46,20 @@ describe('#TwitterQ with user friends retrieval', function() {
       .then(results => {
         // console.log(results);
         console.log(results[0]);
+        results.should.have.length.be.above(0);
+        done();
+      })
+      .catch(done);
+    // return twq.get_user_timeline('2733452459').should.eventually.have.length.be.above(0);
+  });
+});
+
+describe('#TwitterQ with user profiles retrieval', function() {
+  it('respond with matching records', (done) => {
+    twq.get_users_profiles(['2485791210', '2733452459'])
+      .then(results => {
+        console.log(JSON.stringify(results, null, 4));
+        // console.log(results[0]);
         results.should.have.length.be.above(0);
         done();
       })

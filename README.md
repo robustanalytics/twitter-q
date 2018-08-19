@@ -9,6 +9,7 @@ The initial version of this package has the following limitations:
   - statuses/user_timeline
   - followers/ids
   - friends/ids
+  - users/lookup
 - It only supports storing cache as local files
 We expect to add support for other Twitter API calls and caching mechanisms (e.g., redis, memcached) in the future.
 
@@ -41,6 +42,14 @@ twq.get_user_followers('123456789')       //get the followers of user with id '1
 
 twq.get_user_friends('123456789')         //get the friends of user with id '123456789', returns a promise
   .then(results => {                      //results is an array of ids, each a string
+    ...
+  })
+  .catch(err => {
+    ...
+  });
+
+twq.get_users_profiles(['123', '456'])    //get the profiles of all users in the array, returns a promise
+  .then(results => {                      //results is an array of user objects, each containing keys such as id_str, screen_name, location, etc.
     ...
   })
   .catch(err => {
