@@ -1,4 +1,16 @@
 # twitter-q
+<<<<<<< HEAD
+This is a NodeJs package for handling Twitter API requests with the following support:
+- throttle the frequency of requests to comply with free-usage limit imposed by Twitter,
+- automate page turns to retrieve complete records, e.g., all (up to 3,200) tweets on a user's timeline, all followers and friends of a user, etc.,
+- cache the results returned by Twitter APIs, using the caching mechanism specified by the user
+
+The initial version of this package has the following limitations:
+- It supports the following Twitter API calls only:
+  - statuses/user_timeline
+  - followers/ids
+  - friends/ids
+=======
 This is a nodeJs package for handling Twitter API requests with the following support:
 - throttle the frequency of requests to comply with free-usage limit imposed by Twitter,
 - automate page turns to retrieve complete records, e.g., all (up to 3,200) tweets on a user's timeline
@@ -6,6 +18,7 @@ This is a nodeJs package for handling Twitter API requests with the following su
 
 The initial version of this package has the following limitations:
 - It supports the following Twitter API calls only: statuses/user_timeline.
+>>>>>>> 0c2e4e1659b616508472ea03c87ee9edb82ca01d
 - It only supports storing cache as local files
 We expect to add support for other Twitter API calls and caching mechanisms (e.g., redis, memcached) in the future.
 
@@ -20,11 +33,34 @@ var twq = new TwitterQ({
   cparams:              './cache/',       //optional: defaults to './cache/' for 'file'
 });
 
+<<<<<<< HEAD
+twq.get_user_timeline('123456789')        //get the timeline of user with id '123456789', returns a promise
+=======
 twq.get_user_timeline('2485791210')       //get the timeline of user with id '2485791210', returns a promise
+>>>>>>> 0c2e4e1659b616508472ea03c87ee9edb82ca01d
   .then(results => {                      //results is an array of (up to 3,200) tweets, each an object in Twitter API format
     ...
   })
   .catch(err => {
     ...
   });
+<<<<<<< HEAD
+
+twq.get_user_followers('123456789')       //get the followers of user with id '123456789', returns a promise
+  .then(results => {                      //results is an array of ids, each a string
+    ...
+  })
+  .catch(err => {
+    ...
+  });
+
+twq.get_user_friends('123456789')         //get the friends of user with id '123456789', returns a promise
+  .then(results => {                      //results is an array of ids, each a string
+    ...
+  })
+  .catch(err => {
+    ...
+  });
+=======
+>>>>>>> 0c2e4e1659b616508472ea03c87ee9edb82ca01d
 ```
