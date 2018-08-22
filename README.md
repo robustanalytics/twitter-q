@@ -57,8 +57,8 @@ twq.get_users_profiles(['123', '456'])    //get the profiles of all users in the
     ...
   });
 
-twq.search_fullarchive('dev', 'query')  //use the full archive search of Twitter Premium API (either sandbox or paid) to search for 'query', under development environment 'dev', returns a promise
-  .then(results => {                    //results is an array of tweets, each an object in Twitter API format.
+twq.search_fullarchive('dev', 'query')    //use the full archive search of Twitter Premium API (either sandbox or paid) to search for 'query', under development environment 'dev', returns a promise
+  .then(results => {                      //results is an array of tweets, each an object in Twitter API format.
     ...
   })
   .catch(err => {
