@@ -45,7 +45,6 @@ describe('#TwitterQ with user friends retrieval', function() {
     twq.get_user_friends('2485791210')
       .then(results => {
         // console.log(results);
-        console.log(results[0]);
         results.should.have.length.be.above(0);
         done();
       })
@@ -58,12 +57,23 @@ describe('#TwitterQ with user profiles retrieval', function() {
   it('respond with matching records', (done) => {
     twq.get_users_profiles(['2485791210', '2733452459'])
       .then(results => {
-        console.log(JSON.stringify(results, null, 4));
-        // console.log(results[0]);
+        // console.log(JSON.stringify(results, null, 4));
         results.should.have.length.be.above(0);
         done();
       })
       .catch(done);
     // return twq.get_user_timeline('2733452459').should.eventually.have.length.be.above(0);
+  });
+});
+
+describe('#TwitterQ with sandbox full archive search', function() {
+  it('respond with matching records', (done) => {
+    twq.search_fullarchive('dev', '@barackobama')
+      .then(results => {
+        // console.log(JSON.stringify(results, null, 4));
+        results.should.have.length.be.above(0);
+        done();
+      })
+      .catch(done);
   });
 });
